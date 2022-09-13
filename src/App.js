@@ -1,23 +1,41 @@
-import logo from './logo.svg';
 import './App.css';
+import React from "react";
+import Expenses from './components/Expenses/Expenses';
+import NewExpense from './components/NewExpense/NewExpense';
+const App=() => {
+  const products = [
+    {
+      id:'e1',
+      title:'BWM cAR',
+      price:20000,
+      date:new Date(2022,1,1),
+  },
+  
+  {
+    id:'e2',
+    title:'BWM cAR',
+    price:20000,
+    date:new Date(2022,1,1),
+},
+{
+  id:'e3',
+  title:'Ode cAR',
+  price:20000,
+  date:new Date(2022,1,1),
+},
+{
+  id:'e4',
+  title:'Tesla cAR',
+  price:20000,
+  date:new Date(2022,1,1),
+},
+  ];
 
-function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+//  return React.createElement("div", {className: "App"}, "hellosssssssword");
+  <div>
+    <NewExpense/>
+  <Expenses products={products}/>
     </div>
   );
 }
