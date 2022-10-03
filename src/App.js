@@ -1,43 +1,51 @@
-import './App.css';
-import React from "react";
-import Expenses from './components/Expenses/Expenses';
-import NewExpense from './components/NewExpense/NewExpense';
-const App=() => {
-  const products = [
-    {
-      id:'e1',
-      title:'BWM cAR',
-      price:20000,
-      date:new Date(2022,1,1),
-  },
-  
+import React, { useState } from "react";
+import "./App.css";
+import Expenses from "./components/Expenses/Expenses";
+import NewExpense from "./components/NewExpense/NewExpense";
+
+const INITAL_EXPENSES = [
   {
-    id:'e2',
-    title:'BWM cAR',
-    price:20000,
-    date:new Date(2022,1,1),
-},
-{
-  id:'e3',
-  title:'Ode cAR',
-  price:20000,
-  date:new Date(2022,1,1),
-},
-{
-  id:'e4',
-  title:'Tesla cAR',
-  price:20000,
-  date:new Date(2022,1,1),
-},
-  ];
+    id: "e1",
+    title: "BMW Car",
+    price: 20000,
+    date: new Date(2022, 7, 14),
+  },
+  {
+    id: "e2",
+    title: "Audi Car",
+    price: 20000,
+    date: new Date(2019, 8, 2),
+  },
+  {
+    id: "e3",
+    title: "Tesla Car",
+    price: 10000,
+    date: new Date(2022, 9, 10),
+  },
+  {
+    id: "e4",
+    title: "Hyundai Car",
+    price: 20000,
+    date: new Date(2019, 11, 1),
+  },
+];
+
+const App = () => {
+  const [expenses, setExpenses] = useState(INITAL_EXPENSES);
+
+  const addExpenseHandler = (expense) => {
+    // setExpenses([expense, ...expenses]);
+    setExpenses((prevState) => [expense, ...prevState]);
+  };
+let _fontsize =50+'px';
 
   return (
-//  return React.createElement("div", {className: "App"}, "hellosssssssword");
-  <div>
-    <NewExpense/>
-  <Expenses products={products}/>
+    <div>
+      <NewExpense onAddExpense={addExpenseHandler} />
+      <Expenses products={expenses} />
+      <div style={{ 'background-color':"#999999" ,fontSize:_fontsize ,textAlign:"center"}}>Some Styles</div>
     </div>
   );
-}
+};
 
 export default App;
