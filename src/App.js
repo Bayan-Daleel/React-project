@@ -26,7 +26,7 @@ const INITAL_EXPENSES = [
     id: "e4",
     title: "Hyundai Car",
     price: 20000,
-    date: new Date(2019, 11, 1),
+    date: new Date(2019, 11, 1 ),
   },
 ];
 
